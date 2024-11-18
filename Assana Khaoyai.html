@@ -1,0 +1,944 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="imgage/png" href="img/logo.png"> <!--logo ตรง titel-->
+	<title>Mountain Camp</title> <!--titel ของเว็บ-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> <!-- อิงicon-->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="code/js/jquery.min.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+		
+		<style>
+			html, body{ /*กำหนดหน้าเว็บให้เต็มจอ 100%*/
+    			height: 100%;
+				scroll-behavior: smooth;
+				}
+			@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap'); /*อ้างอิงฟอน*/
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: "Josefin Sans", "Roboto Slab", sans-serif;
+				}
+				.map-in iframe {
+				width: 500px;
+				height: 400px;
+			}
+			@media(max-width: 1485px){
+				.emt-all-here {
+					margin-left: -100px;
+				}
+				.detail-text-2 {
+					margin-left: 0px;
+				}
+				.map-in iframe{
+					height: 500px;
+					width: 100%;
+				}}
+			
+			body {
+				background: #FEFAE0;
+			}
+			.pin {
+				background: #5E6E52;
+				border-radius: 2px;
+				padding: 5px;
+				width: 200px;
+				height: 30px;
+				font-size: 15px;
+				align-items: center;
+				justify-content: center;
+				margin-left: 200px;
+				margin-bottom: 25px;
+			}
+			.pin i {
+				color: #ffffff;
+				margin-left: 6px;
+			}
+			.pin i:hover {
+				color: #e6dfb2;
+			}
+			.name {
+				display: flex;
+				color: #5E6E52;
+				font-size: 50px;
+				align-items: center;
+				justify-content: start;
+				margin-left: 200px;
+			}
+			.text-detail {
+				margin-left: 200px;
+				margin-right: 30px;
+				margin-bottom: 30px;
+				background: #fff;
+				padding: 20px;
+				border-radius: 5px;
+				box-shadow: 0 5px 10px rgb(0, 0, 0 , 0.2);
+			}
+			.text-detail-body {
+				margin-left: 200px;
+				margin-right: 30px;
+				margin-bottom: 30px;
+				background: #fff;
+				padding: 20px;
+				border-radius: 5px;
+				box-shadow: 0 5px 10px rgb(0, 0, 0 , 0.2);
+			}
+			.raw {
+				margin-left: 200px;
+				margin-right: 30px;
+				margin-bottom: 30px;
+				background: #fff;
+				padding: 20px;
+				border-radius: 5px;
+				box-shadow: 0 5px 10px rgb(0, 0, 0 , 0.2);
+			}
+			.tab-icon-view {
+				margin-left: 200px;
+				margin-right: 30px;
+				margin-bottom: 30px;
+				background: #fff;
+				padding: 20px;
+				border-radius: 5px;
+				box-shadow: 0 5px 10px rgb(0, 0, 0 , 0.2);
+			}
+			.detail-here {
+				margin-left: 200px;
+				margin-right: 30px;
+				margin-bottom: 30px;
+				background: #fff;
+				padding: 20px;
+				border-radius: 5px;
+				box-shadow: 0 5px 10px rgb(0, 0, 0 , 0.2);
+			}
+			.detail-here p1 {
+				color: rgb(173, 173, 173);
+			}
+			.detail-text-1{
+				white-space: nowrap;
+			}
+			.detail-text-2 {
+				white-space: nowrap;
+			}
+			.icon-text {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.icon-text-body {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				
+			}
+			.under-map {
+				margin-top: 25px;
+				border-bottom: 2px solid #5E6E52;
+				margin-bottom: 25px;	
+			}
+			.emt-text-11 {
+				display: flex;
+			}
+			.detail-text-2 {
+				margin-left: 200px;
+			}
+			.icon-2 {
+				display: block;
+				margin-left: 70px;
+				margin-right: 70px;
+			}
+			.icon-text-body {
+				justify-content: center;
+				align-items: center;
+			}
+			.icon-text-body p{
+				justify-content: center;
+				align-items: center;
+			}
+			.icon-2 img {
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+			.test {
+				display: flex;
+			}
+			.detail-body-2 {
+				margin-left: 200px ;
+			}
+			.detail-head {
+				border-bottom: 3px solid #5E6E52;
+				margin-bottom: 10px;
+			}
+			.detail-body {
+				border-bottom: 3px solid #5E6E52;
+				margin-bottom: 10px;
+			}
+			.head-text {
+				border-bottom: 3px solid #5E6E52;
+				margin-bottom: 10px;
+			}
+			.left-right {
+				display: flex;
+			}
+			.right-side {
+				margin-left: 100px;
+			}
+			.test .text-test p4 {
+				color: #6e6e6e;
+				margin-left: 50px;
+			}
+			.bt {
+				margin-top: 10px;
+				background: #127777;
+				color: #fff;
+				padding: 10px;
+				border-radius: 3px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				line-height: 1;
+			}
+			.bt p {
+				margin-top: 10px;
+			}
+			.bt:hover {
+				color: #fff;
+				background: #246363;
+			}
+			.text-contact {
+				color: #24262b;
+				font-size: 15px;
+			}
+			/*แถบเมนูข้างบน*/
+            a:link{
+                text-decoration: none;
+                }
+			/*เปิด nav*/
+			.logo{
+				margin-top: -15px;	
+			
+			}
+			nav{
+				background-color: #5E6E52;
+				box-shadow: 3px 3px 5px rgb(0, 0, 0, 0.1);
+				font-family: "Josefin Sans", sans-serif;
+				}
+			nav ul{
+				width: 100%;
+				list-style: none;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				font-family: "Josefin Sans", sans-serif;
+			}
+			nav li{
+				height: 50px;
+				font-family: "Josefin Sans", sans-serif;
+			}
+			/*Search*/
+			.Search{
+				margin-left: 50px;
+				background-color: #eee;
+				width: 330px;
+				height: 90%;
+				border-radius: 50px;
+				justify-content: space-between;
+				padding: -10px 25px;
+			}
+			.aa {
+				margin-left: 40px;
+			}
+			input {padding: 10px;
+				width: 230px;
+				border: none;
+				outline: none;
+				background: none;
+				font-size: 18px;
+			}
+			.fa-solid {
+				color: #24262b;
+			}
+			.fa-solid:hover {
+				color: #5E6E52;
+				cursor: pointer;
+			}
+			/*Search*/
+			nav a {
+				height: 100%;
+				padding: 0 30px;
+				text-decoration: none;
+				display: flex;
+				align-items: center;
+				color: antiquewhite;
+				font-weight: bold;
+				font-family: "Josefin Sans", sans-serif;
+				background:
+   				 linear-gradient(#e6dfb2 0 0) 
+   				 left /100% var(--d, 0%) no-repeat;
+  				transition: 0.6s;
+				border-radius: 20px;
+			}
+			nav a:hover{
+				--d: 100%;
+ 				 color: #5E6E52;
+			}
+			
+			nav li:first-child{
+				margin-right: auto;
+			}
+			
+			.sidebar{
+				position: fixed;
+				top: 0;
+				right: 0;
+				height: 100vh;
+				width: 450px;
+				z-index: 999;
+				background-color: rgb(94, 110, 82, 0.80);
+				backdrop-filter: blur(10px);
+				box-shadow: -10px 0 10px rgb(0, 0, 0 , 0.1);
+				display: none;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-start;
+
+			}
+			p57 {
+				margin-left: 53px;
+				font-size: 15px;
+				color: #6e6e6e;
+			}
+			.right-side {
+				margin-right: 200px;
+			}
+			.sidebar li{ 
+				width: 100%;
+			}
+			.sidebar a{
+				width: 100%;
+			}
+
+			.menu-button{
+				display: none;
+			}
+			@media(max-width: 1685px){
+			}
+			@media(max-width: 1485px){
+				.emt-all-here {
+					margin-left: -100px;
+				}
+				.detail-text-2 {
+					margin-left: 0px;
+				}
+				.map-in iframe{
+					height: 400px;
+					width: 100%;
+				}
+				.left-right {
+					flex-direction: column;
+				}
+				.icon-text-body {
+					flex-direction: column;
+				}
+				.right-side {
+					margin-left: 300px;
+					align-items: center;
+				}
+				.hideOnMobile{
+					display: none;
+					width: 300px;
+					margin-right: 25px;
+				}
+				.emt-text-11 {
+					flex-direction: column;
+				}
+				.menu-button{
+					display: block;
+				}
+			}
+			@media(max-width: 400px){
+				.sidebar{
+					width: 100%;
+				}
+			}
+			@media(max-width: 1024px ){
+				.raw {
+					hyphens: auto;
+				}
+			}
+			/*ปิด nav*/
+					/*จบปุ่ม search*/
+				/*จบแถบเมนูข้างบน*/
+
+				/*body*/
+
+				/*button top */
+				.go-top-btn {
+					position: fixed;
+					bottom: 35px;
+				right: 35px;
+					border-radius: 50%;
+					cursor: pointer;
+					height: 68px;
+					width: 68px;
+					background: #B99470;
+					border:none;
+					display: none;
+					justify-content: center;
+					align-items: center;
+					}
+				.go-top-btn img{ 
+					width: 60px;
+					height: 60px;
+						}
+                                /*button top */
+				/*footer*/
+			footer {
+					bottom: 0;
+				}
+				.Container-fluid p{
+					white-space: nowrap;
+				}
+				footer .detail { /*พื้นหลังตารางของ footer*/
+    				background-color: #5E6E52;
+    				color: #fff;
+    				font-size: 15px;
+    				padding: 40px;
+					width: 100%;
+    				bottom: -300px;
+    				display: flex;
+					text-align: center;
+					right: 0;
+					left: 0;
+					margin-top: 100px;
+				}
+				.footer-copy .left-f a{ /*icon*/
+    				display: inline-block;
+   					height: 40px;
+    				width: 40px;
+    				background-color: rgba(255,255,255,0.2);
+    				margin:0 10px 10px 0;
+    				text-align: center;
+    				line-height: 40px;
+    				border-radius: 50%;
+    				color: #ffffff;
+    				transition: all 0.5s ease;
+  				}
+  				.footer-copy a:hover{ /*icon เวลาเอาเม้าชี้*/
+    				color: #24262b;
+    				background-color: #ffffff;
+  				}
+				  .footer-address { /**/
+					justify-content: center;
+				}
+				.footer-contact {
+					justify-content: center;
+				}
+				@media screen and (max-width: 1300px) {
+    				footer .detail {
+        			bottom: auto;
+        			margin-top: -10vw;
+        			padding: 40px 0 0px;
+					flex-direction :column;
+					display: flex;
+    				justify-content: center;
+					align-items: center;
+					margin-top: 20px;
+   				 }}
+
+				.slider{
+    			height: 720px;
+    			margin: auto;
+    			position: relative;
+				margin-bottom: 25px;
+   				overflow: hidden;
+			}
+			.slider .list{
+    			position: absolute;
+    			width: max-content;
+    			height: 100%;
+    			left: 0;
+    			top: 0;
+    			display: flex;
+    			transition: 1s;
+			}
+			.slider .list img{
+    			width: 2000px;
+    			max-width: 100vw;
+    			height: 100%;
+    			object-fit: cover;
+			}
+			.slider .buttons{
+    			position: absolute;
+    			top: 45%;
+    			left: 5%;
+    			width: 90%;
+    			display: flex;
+    			justify-content: space-between;
+			}
+			.slider .buttons button{
+    			width: 50px;
+   				height: 50px;
+    			border-radius: 50%;
+    			background-color: #fff5;
+    			color: #fff;
+    			border: none;
+    			font-weight: bold;
+			}
+			.slider .dots{
+    			position: absolute;
+    			bottom: 10px;
+    			left: 0;
+    			color: #fff;
+    			width: 100%;
+    			margin: 0;
+    			padding: 0;
+    			display: flex;
+    			justify-content: center;
+			}
+			.slider .dots li{
+    			list-style: none;
+    			width: 10px;
+    			height: 10px;
+    			background-color: #fff;
+    			margin: 10px;
+    			border-radius: 20px;
+    			transition: 0.5s;
+			}
+			.slider .dots li.active{
+    			width: 30px;
+			}
+			@media screen and (
+				max-width: 768px)
+				{
+			}
+				/*footer*/
+				.loader {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #ffffff;
+                    transition: opacity 1.5s, visibility 1.5s;
+                }
+                .loader-hidden{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                .loader::after{
+                    content: "";
+                    width: 75px;
+                    height: 75px;
+                    border: 15px solid #fff;
+                    border-top-color: #5E6E52;
+                    border-radius: 50%;
+                    animation: loading 0.75s ease infinite;
+                }
+                @keyframes loading {
+                    from{
+                        transform: rotate(0turn);
+                    }
+                    to{
+                        transform: rotate(1turn);
+                    }
+                }
+ 
+                    
+			</style>
+</head>	
+<body>		
+	<div class="loader"></div>
+	<script>
+		window.addEventListener("load", () => {
+			const loader = document.querySelector(".loader");
+
+			loader.classList.add("loader-hidden");
+
+			loader.addEventListener("transitionend", () => {
+				document.body.removeChild("loader")
+			})
+		})
+        
+		</script>
+	    <!-- ส่วนบน -->
+		<header>
+		<!-- Full Menu -->
+	<nav class="nav navbar fixed-top">
+		<ul class="sidebar">
+			<li onclick="hideSidebar()"><a href="#" class="justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+			
+			<div class="ham-logo"> <!-- โลโก้ -->
+				<a href="login.html"><img src="img/logo.png" alt="" width="80">Mountain Camp</a>
+			</div>
+			
+			<li><a href="index.html">Home</a></li>
+			<li><a href="WEB-Location.html">Location</a></li>
+			<li><a href="WEB-Recommend.html">Recommend</a></li>
+			<li><a href="WEB-Contact.html">Contact</a></li>
+			<li><a href="login.html">Login</a></li>
+			<li>
+				<div class="Search">
+					<input type="text" placeholder="Search"  class="aa">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</div>
+			</li>
+		</ul>
+        
+        </script>
+		<!-- Full Menu -->
+
+
+
+		<!-- Button Top -->
+		<button class="go-top-btn">
+			<img src="https://img5.pic.in.th/file/secure-sv1/up-arrow-copy.png" alt="arrow up">
+		</button>
+	
+	<script>
+		const goTopBtn = document.querySelector('.go-top-btn');
+		
+		window.addEventListener('scroll', checkHeight)
+		function checkHeight(){
+		if(window.scrollY > 200) {
+			goTopBtn.style.display = "flex"
+		} else {
+			goTopBtn.style.display = "none"
+		}
+	}
+	
+	goTopBtn.addEventListener('click', () => {
+	window.scrollTo({
+		top: 0
+	})
+	})
+	</script>
+	<!-- Button Top -->
+
+		<!-- Mini Menu -->
+		<ul class="navbar navbar-expand-lg my-2 ">
+			<div class="container-fluid ">
+			<li>
+		
+			<div class="logo"> <!-- โลโก้ -->
+				<a href="index.html"><img src="img/logo.png" alt="" width="80">Mountain Camp </a>
+			</div>
+			</li>
+			<li class="hideOnMobile"><a href="index.html">Home</a></li>
+			<li class="hideOnMobile"><a href="WEB-Location.html">Location</a></li>
+			<li class="hideOnMobile"><a href="WEB-Recommend.html">Recommend</a></li>
+			<li class="hideOnMobile"><a href="WEB-Contact.html">Contact</a></li>
+			<li class="hideOnMobile"><a href="login.html">Login</a></li>
+			<div class="hideOnMobile">
+				<div class="Search">
+					<input type="text" placeholder="Search" class="aa">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</div>
+			</div>
+			</li>
+			<li class="menu-button" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 -960 960 960" width="35"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+		</div>
+		</ul>
+		<!-- Mini Menu -->
+	</nav>
+	
+	<!-- buger Menu Script-->
+	<script>
+		function showSidebar(){
+			const sidebar = document.querySelector('.sidebar')
+			sidebar.style.display = "flex"
+		}
+		function hideSidebar(){
+			const sidebar = document.querySelector('.sidebar')
+			sidebar.style.display = "none"
+		}
+	</script>
+	<!-- buger Menu Script-->
+	</header>
+		<!-- ส่วนบน --> 
+
+		<!-- ส่วนbody -->
+		<div class="slider" style="margin-top: 90px;">
+			<div class="list">
+				<div class="item">
+					<img src="location/อัสซาน่า เขาใหญ่ Assana Khaoyai/1.jpg">
+				</div>
+				<div class="item">
+					<img src="location/อัสซาน่า เขาใหญ่ Assana Khaoyai/2.jpg">
+				</div>
+				<div class="item">
+					<img src="location/อัสซาน่า เขาใหญ่ Assana Khaoyai/3.jpg">
+				</div>
+				<div class="item">
+					<img src="location/อัสซาน่า เขาใหญ่ Assana Khaoyai/4.jpg">
+				</div>
+				<div class="item">
+					<img src="location/อัสซาน่า เขาใหญ่ Assana Khaoyai/5.jpg">
+				</div>
+
+			</div>
+			<div class="buttons" >
+				<button id="prev" ><</button>
+				<button id="next">></button>
+			</div>
+			<ul class="dots">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<!-- ส่วนbody -->
+		<div class="emt-all-here tag">
+			<div class="pin">
+				<i class="fa-solid fa-location-dot">&nbsp จังหวัดนครราชสีมา </i>
+			</div>
+
+			<div class="name" style="margin-bottom: 15px;">
+				<img src="location/อัสซาน่า เขาใหญ่ Assana Khaoyai/logo.jpg" width="100" height="100" style="border-radius: 50px; margin-bottom: 10px;">
+				 <h1>&nbsp อัสซาน่า เขาใหญ่ Assana Khaoyai</h1>
+			</div>
+		<div class="left-right">
+		<div class="left">
+		<div class="emt-text">
+			<div class="text-detail">
+					<div class="detail-head">
+						<h5>รายละเอียด</h5>
+					</div>
+				<p> 
+				    ✅ การเล่นน้ำขอให้เล่นในบริเวณที่ตัวเองจองไว้เท่านั้น ไม่ข้ามไปเล่นโซนอื่นเด็ดขาด <br>
+					- ในกรณีที่ลูกค้ามาน้อยกว่า 3 ท่านและใช้ทาร์ปหรือเต็นท์ที่มีขนาดใหญ่เกิน 5x5 เมตรขึ้นไป  <br>ทางเราต้องขอคิดค่าบริการเพิ่มนะครับ <br>
+					<hr>
+					✅ ทางเรามีปลั๊กตู้ให้เสียบใช้ได้สำหรับชาร์จแบตและใช้ไฟส่องสว่างเท่านั้น (งดใช้เครื่องใช้ไฟฟ้าทำความร้อนทุกชนิด) <br> และแนะนำให้นำปลั๊กรางยาว 20-30 เมตรติดมาด้วยนะครับ <br> <hr>
+					✅ ขอทำการมัดจำล่วงหน้าเต็มจำนวนก่อนนะครับ <br> - สามารถแจ้งเปลี่ยนวันได้ไม่เกิน 1 ครั้งและหากจะยกเลิก <br> 
+					ขอให้แจ้งล่วงหน้าไม่น้อยกว่า 7 วัน ซึ่งทางเราจะคืนเงินให้เต็มจำนวน <br> (หากแจ้งน้อยกว่า 7 วัน ทางเราจะทำการคืนให้ 50% และหากแจ้งแค่ 2 วันล่วงหน้าต้องขอเก็บค่ามัดจำ 100% นะครับ) <br><hr>
+
+					✅ สามารถนำสัตว์เลี้ยงเข้ามาที่ลานได้<br>- แต่ต้องรักษาความสะอาดและไม่รบกวนลูกค้าท่านอื่น <br> (กรุณาแจ้งก่อนเพราะเราจะเช็คว่าในวันที่จองมีสัตว์ต่างพันธ์ุที่ไม่ถูกกันไหม  เช่นสุนัขและแมวหรือนกเป็นต้น) <br>
+			   </p>
+			</div>
+	
+			<div class="color-text">
+			<div class="text-detail-body">
+				<div class="head-text-2">
+					<div class="detail-body">
+						<h5>ข้อมูลสำคัญ</h5>
+					</div>
+						<div class="test">
+						<div class="text-test">
+				<h6><img src="https://whatthecamp.b-cdn.net/static/homepage/icons_detail/money.png" width="40" style="margin-bottom: -20px;">&nbsp&nbsp ค่าบริการ 200 บาท/คน/คืน  <br>
+					<p57>- ราคากางเต็นท์ลานริมลำตะคอง 200 บาทต่อคน / วัน<br></p57>
+					<p57>- ราคากางเต็นท์ลานริมน้ำตก เหมาลาน 3000 บาทวัน ธรรมดา (จัน-พฤหัสบดี) <br></p57>
+					<p57> และ 4000 บาท (ศุกร์-อาทิตย์) รับได้ที่ 10 ท่าน<br></p57>
+					<p57>- สำหรับเด็ก 1 ครอบครัว (ผู้ใหญ่ 2 คน) เด็กไม่เกิน 10 ขวบฟรี 1 คนแต่คนต่อไปคิด 50% ครับ<br></p57>
+					<p57>(สำหรับเด็กอายุเกิน 10 ขวบจะคิดราคาเท่าผู้ใหญ่นะครับ)</p57>
+				</h6><br>
+				<h6><img src="https://whatthecamp.b-cdn.net/static/homepage/icons_detail/clock.png " width="40" style="margin-bottom: -20px;">&nbsp &nbspเวลาเปิด <br>
+					<p57>เช็คอินเวลา : ตั้งแต่ 09:00 A.M - 05:00 P.M.<br></p57>
+					<p57>เช็คเอาท์เวลา :  ก่อน 12:00 A.M.</p57>
+				</h6>
+				</div>
+				</div></div>
+			</div>
+
+			<div class="tab-icon-view ">
+				<div class="head-text">
+					<h5>ทัศนียภาพ</h5>
+				</div>
+				<div class="icon-text-body">
+				<div class="icon-2">
+					<img src="https://cdn-icons-png.flaticon.com/128/2169/2169385.png" width="100">
+					<p>&nbsp&nbsp&nbsp&nbsp ลำธาร</p>
+				</div>
+				<div class="icon-2">
+					<img src="https://cdn-icons-png.flaticon.com/128/1020/1020719.png" width="100">
+					<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ภูเขา</p>
+				</div>
+			</div>
+			</div>
+
+			<div class="detail-here">
+				<div class="detail-head">
+					<h5>สิ่งอำนวยความสะดวก</h5>
+				</div> 
+				<div class="emt-text-11">
+				<div class="detail-text-1">
+					<p><img src="https://whatthecamp.b-cdn.net/static/homepage/icons_detail/plug.png" width="40">&nbsp  มีไฟฟ้า จุดต่อไฟให้บริการ </p>
+					<p><img src="https://whatthecamp.b-cdn.net/static/homepage/icons_detail/sanitary.png" width="40">&nbsp มีห้องน้ำแยก ชาย/หญิง</p>
+                    <p><img src="https://whatthecamp.b-cdn.net/static/homepage/icons_detail/coffee-cup.png" width="40" style="margin-top: -10px;">&nbsp  มีร้านคาเฟ่ Cafe </p>
+					<p><img src="https://img5.pic.in.th/file/secure-sv1/signal-1.png" width="40">&nbsp  ไม่มีสัญญาณโทรศัพท์</p>
+				</div>
+				
+				<div class="detail-text-2">
+				<p><img src="https://whatthecamp.b-cdn.net/static/homepage/icons_detail/washing-hands.png" width="40">&nbsp  มีจุดล้างภาชนะ-อุปกรณ์ </p>
+				<p><img src="https://whatthecamp.b-cdn.net/static/homepage/icons_detail/rubbish.png" width="40">&nbsp มีจุดทิ้งขยะ แยกขยะ </p>
+                <p><img src="https://whatthecamp.b-cdn.net/static/homepage/icons_detail/wagon.png" width="40">&nbsp มีรถเข็นให้ใช้ฟรี </p>
+				<p><img src="https://cdn-icons-png.flaticon.com/128/4363/4363754.png" width="40">&nbsp มีบริการเรือคายัค </p>
+
+			</div>
+			</div>
+			</div>
+
+			<div class="raw">
+				<div class="detail-head">
+					<h5>กฎระเบียบ</h5>
+				</div>
+
+				<div class="raw-left ">
+					<p>เพื่อให้สมาชิกทุกท่านเข้าใช้พื้นที่อย่างมีความสุขร่วมกัน <br> จึงขอความร่วมมือปฏิบัติตามเงื่อนไขในการเข้าใช้พื้นที่  ดังนี้ </p>
+
+					<p> 1. หลัง 4 ทุ่ม งดใช้เสียงดัง งดการใช้เครื่องเสียงต่างๆ และหลัง 5 ทุ่มขอให้งดกิจกรรมต่างๆเพื่อไม่ให้รบกวนสมาชิกท่านอื่น <br>(หากฝ่าฝืนทางเราต้องขอหยุดให้บริการและขอเชิญออกจากพื้นที่) <br>
+					 	2. กรุณาดูแลบุตรหลานและสัตว์เลี้ยงของท่านอย่างเข้มงวด เนื่องจากสถานที่ติดธารน้ำมีช่วงน้ำลึกและเชี่ยว<br> และมีส่วนที่ยังเป็นป่าตามธรรมชาติอยู่  <br>
+						3. กรุณารักษาความสะอาดไม่ทิ้งขยะเรี่ยราดในพื้นที่ลานและห้องน้ำ *ไม่ทิ้งทิชชู่หรือสิ่งต่างๆลงชักโครก!!<br>ทางเรามีจุดทิ้งขยะเตรียมไว้ ขอให้ทิ้งขยะในจุดที่เตรียมไว้ให้เท่านั้น (ขยะเปียกให้มัดเก็บให้เรียบร้อย) <br>
+						4. งดสูบบุหรี่ภายในลานกางเต็นท์ และ ท่านสามารถสูบบุหรี่และเก็บก้นบุหรี่ทิ้งในจุดกำหนดเท่านั้น (ลานจอดรถ) <br>
+						5. ห้ามนำอาวุธและยาเสพติดเข้ามาในสถานที่แห่งนี้ หากฝ่าฝืนจะมีการแจ้งเจ้าหน้าที่เพื่อดำเนินคดีตามกฎหมาย <br>
+						6. ห้ามนำอาหารและเครื่องดื่มลงไปรับประทานในลำธารและน้ำตก<br>และห้ามนำภาชนะไปล้าง,ห้ามขับถ่าย,อาบน้ำโดยใช้สารเคมีทำความสะอาดร่างกายทุกชนิด <br>
+						7. ห้ามก่อไฟและนำเครื่องทำความร้อน กาน้ำและอุปกรณ์ทำความร้อนต่างๆมาใช้บนพื้นหญ้าโดยตรง <br>(สามารถใช้เตาแก๊สหรือเตาถ่านได้แต่ขอให้เป็นแบบทรงสูงและลอยเหนือพื้น) <br>
+						8. ห้ามขับรถขึ้นบนพื้นที่กางเต็นท์และจอดรถในส่วนที่ทางลานแจ้งไว้เท่านั้น (ห้ามจอดบนหญ้า) <br>
+                    </p>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>      
+	<div class="right-side">
+		<div class="map-in">
+		<h3>แผนที่</h3>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.6939916711294!2d101.47422667603892!3d14.559483778080168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311c316bc87bf375%3A0x4d9e8dd9eee7eea6!2sAssana%20Khaoyai!5e0!3m2!1sen!2sth!4v1709739043917!5m2!1sen!2sth" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>		
+		<a href="https://www.google.com/maps/place/Assana+Khaoyai/@14.5594838,101.4742267,17z/data=!3m1!4b1!4m6!3m5!1s0x311c316bc87bf375:0x4d9e8dd9eee7eea6!8m2!3d14.5594786!4d101.4768016!16s%2Fg%2F11n0cc__37?hl=en-GB&entry=ttu" class="bt" >
+			<p>เปิดแผนที่บน Google Map</p>
+		</a>
+	</div>
+
+		<div class="under-map"></div>
+
+		<div class="head-contact">
+			<div class="contact">
+				<h3>ช่องทางการติดต่อ</h3>
+			<div class="text-contact">
+			<p>Tel : 096-203-5075</p> 
+
+
+		<a href="https://www.facebook.com/Assanakhaoyai/" class="FB">
+			<p style="color: #24262b;">FB : Assana Khaoyai </p>
+		</a>
+	</div>
+	</div>
+		<div class="under-map"></div>
+
+		<div class="copy-1">
+			<small class="text-muted">✔ ข้อมูลทั้งหมดที่อยู่ในหน้าเว็บทางเป็นข้อมูลอ้างอิงทาง Mountain Camp <br> ต้องขออภัยทางหากทางเจ้าของลานกางเต็นท์ไม่พอใจ พวกเรากลุ่ม Mountain Camp <br>แค่อ้างอิงข้อมูลมาทำงานกลุ่มเขียนโปรแกรมเท่านั้น.</small>
+		</div>
+
+		<div class="under-map"></div>
+
+		<div class="copy-here">
+			<small class="text-muted"> 
+			#จากเพจ Assana Khaoyai  <br>
+			#เครดิตข้อมูล จากเพจ Assana Khaoyai </small>
+
+		</div>
+
+		<div class="under-map"></div>
+
+		<small class="text-muted">#จุดกางเต็นท์แคมป์อัสซาน่า เขาใหญ่ Assana Khaoyai</small> <br>
+		<small class="text-muted">#ลานกางนครราชสีมา </small>
+		</div>
+	</div>
+</div>
+</div>
+
+		<!-- ส่วนbody -->
+
+
+
+		<script>
+			let slider = document.querySelector('.slider .list');
+			let items = document.querySelectorAll('.slider .list .item');
+			let next = document.getElementById('next');
+			let prev = document.getElementById('prev');
+			let dots = document.querySelectorAll('.slider .dots li');
+	
+			let lengthItems = items.length - 1;
+			let active = 0;
+		next.onclick = function(){
+		active = active + 1 <= lengthItems ? active + 1 : 0;
+		reloadSlider();
+			}
+		prev.onclick = function(){
+		active = active - 1 >= 0 ? active - 1 : lengthItems;
+			reloadSlider();
+			}
+		let refreshInterval = setInterval(()=> {next.click()}, 3000);
+		function reloadSlider(){
+	slider.style.left = -items[active].offsetLeft + 'px';
+	// 
+		let last_active_dot = document.querySelector('.slider .dots li.active');
+	last_active_dot.classList.remove('active');
+	dots[active].classList.add('active');
+	
+	clearInterval(refreshInterval);
+	refreshInterval = setInterval(()=> {next.click()}, 3000); //เวลารูป
+		}
+		dots.forEach((li, key) => {
+	li.addEventListener('click', ()=>{
+		 active = key;
+			 reloadSlider();
+	})})
+		window.onresize = function(event) {
+			reloadSlider();};
+		</script>
+
+		<!-- ส่วนfooter -->
+	<footer>
+		<div class="Container-fluid">
+			 <!-- พื้นหลัง footer -->
+					<div class="detail">
+					<div class="footer-address col-md-4"> <!--แถบ 1-->
+						<p>Mountain Camp</p>
+						<p>Rajamangala University of Technology Thanyaburi
+						<br>Address : 39 Moo 1, Klong 6, Khlong Luang Pathum Thani 12110 Thailand</br></p>
+						<p>Email : mountaincamp@mail.com</p>
+					</div>
+					<div class="footer-contact col-md-4"> <!--แถบ 2-->
+						<p>Opening hours: ( 10.00 a.m. - 10:00 p.m. )</p>
+						<p>
+							Tourist information ( 11.30 a.m. - 6:00 p.m. )<br>
+							Tel : 099-327-1546 (ProJect Manager)
+						</p>
+						<p>
+							Emergency Call (24 hours)<br>
+							Tel : 191 (police)<br>
+							Tel : 1669 (hospital)
+						</p>
+					</div>
+					<div class="footer-copy col-md-4" style="justify-content: center;"> <!--แถบ 3-->
+						<div class="left-f">
+						<p>
+							<a href="https://www.facebook.com/profile.php?id=61556827437882&mibextid=LQQJ4d
+							"target="_blank"><i class="fab fa-facebook-f"></i></a>
+							<a href="https://x.com/mountaincamp01?s=21&t=c1GSwNEYZR6T10_pDTIyFQ"target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+							<a href="https://www.instagram.com/moun_tain_camp?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr"target="_blank"><i class="fab fa-instagram"></i></a>
+						</p>
+					</div>
+					<div class="right-f">
+						<p class="text-center ">&copy;2024 Mountain Camp</p>
+							<a href="credit.html" class="bbg" style="color:#e6dfb2;"">by @Mountain Camp</b>
+					</div>	
+				</div>
+			</div>
+	</footer>
+	<!-- ส่วนfooter -->
+
+</body>
+</html>

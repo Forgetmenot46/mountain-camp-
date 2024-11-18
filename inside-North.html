@@ -1,0 +1,515 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="imgage/png" href="img/logo.png"> <!--logo ตรง titel-->
+	<title>Mountain Camp</title> <!--titel ของเว็บ-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> <!-- อิงicon-->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="code/js/jquery.min.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+		
+		<style>
+			html, body{ /*กำหนดหน้าเว็บให้เต็มจอ 100%*/
+    			height: 100%;
+				scroll-behavior: smooth;
+				}
+			body {
+				background: #eaebd9;
+			}
+			@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap'); /*อ้างอิงฟอน*/
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: "Josefin Sans", "Roboto Slab", sans-serif;
+				}
+			.emt {
+				margin-left: 100px;
+				margin-right: 100px;
+				margin-bottom: 100px;
+			}
+			.text {
+				margin-top: 150px;
+				margin-bottom:  10px;
+				color: #5E6E52;
+			}
+			.text h2 {
+				font-size: 70px;
+			}
+			.img-text {
+				background: #fff;
+				display: flex;
+				align-items: center;
+				margin-bottom: 25px;
+				box-shadow: 0 5px 10px rgb(0, 0, 0 , 0.2);
+			}
+			.img-text:hover {
+				filter: brightness(0.9);
+			}
+			.text-all {
+				margin-left: 30px;
+				color: #749b56;
+				font-size: 15px;
+			}
+			.text-all h3{
+				color: #53703b;
+				font-size: 40px;
+			}
+			/*แถบเมนูข้างบน*/
+            a:link {
+                text-decoration: none;
+                }
+			/*เปิด nav*/
+			.logo {
+				margin-top: -15px;	
+			
+			}
+			nav {
+				background-color: #5E6E52;
+				box-shadow: 3px 3px 5px rgb(0, 0, 0, 0.1);
+				font-family: "Josefin Sans", sans-serif;
+				}
+			nav ul {
+				width: 100%;
+				list-style: none;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				font-family: "Josefin Sans", sans-serif;
+			}
+			nav li {
+				height: 50px;
+				font-family: "Josefin Sans", sans-serif;
+			}
+			/*Search*/
+			.Search{
+				margin-left: 50px;
+				background-color: #eee;
+				width: 330px;
+				height: 90%;
+				border-radius: 50px;
+				justify-content: space-between;
+				padding: -10px 25px;
+			}
+			.aa {
+				margin-left: 40px;
+			}
+			input {
+				padding: 10px;
+				width: 230px;
+				border: none;
+				outline: none;
+				background: none;
+				font-size: 18px;
+			}
+			.fa-solid {
+				color: #24262b;
+			}
+			.fa-solid:hover {
+				color: #5E6E52;
+				cursor: pointer;
+			}
+			/*Search*/
+			nav a {
+				height: 100%;
+				padding: 0 30px;
+				text-decoration: none;
+				display: flex;
+				align-items: center;
+				color: antiquewhite;
+				font-weight: bold;
+				font-family: "Josefin Sans", sans-serif;
+				background:
+   				 linear-gradient(#e6dfb2 0 0) 
+   				 left /100% var(--d, 0%) no-repeat;
+  				transition: 0.6s;
+				border-radius: 20px;
+			}
+			nav a:hover{
+				--d: 100%;
+ 				 color: #5E6E52;
+			}
+			
+			nav li:first-child{
+				margin-right: auto;
+			}
+			.sidebar{
+				position: fixed;
+				top: 0;
+				right: 0;
+				height: 100vh;
+				width: 450px;
+				z-index: 999;
+				background-color: rgb(94, 110, 82, 0.80);
+				backdrop-filter: blur(10px);
+				box-shadow: -10px 0 10px rgb(0, 0, 0 , 0.1);
+				display: none;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-start;
+
+			}
+			.sidebar li{ 
+				width: 100%;
+			}
+			.sidebar a{
+				width: 100%;
+			}
+
+			.menu-button{
+				display: none;
+			}
+			@media(max-width: 1685px){
+			}
+			@media(max-width: 1485px){
+				.emt h2{
+					text-align: center;
+				}
+				.text-all {
+					max-width: 700px;
+				}
+				.text-all p{
+					margin-top: 10px;
+				}
+				.img-text {
+					flex-direction: column;
+					padding-bottom: 100px;
+				}
+				.img-text img {
+					width: 100%;
+					margin-bottom: 15px;
+					height: 400px;
+				}
+				.hideOnMobile{
+					display: none;
+					width: 300px;
+					margin-right: 25px;
+				}
+				.menu-button{
+					display: block;
+				}
+			}
+			@media(max-width: 400px){
+				.sidebar{
+					width: 100%;
+				}
+			}
+			/*ปิด nav*/
+					/*จบปุ่ม search*/
+				/*จบแถบเมนูข้างบน*/
+
+				/*body*/
+
+				/*button top */
+				.go-top-btn {
+					position: fixed;
+					bottom: 35px;
+				right: 35px;
+					border-radius: 50%;
+					cursor: pointer;
+					height: 68px;
+					width: 68px;
+					background: #B99470;
+					border:none;
+					display: none;
+					justify-content: center;
+					align-items: center;
+					}
+				.go-top-btn img{ 
+					width: 60px;
+					height: 60px;
+						}
+                                /*button top */
+
+				/*footer*/
+			footer {
+					bottom: 0;
+				}
+				.Container-fluid p{
+					white-space: nowrap;
+				}
+				footer .detail { /*พื้นหลังตารางของ footer*/
+    				background-color: #5E6E52;
+    				color: #fff;
+    				font-size: 15px;
+    				padding: 40px;
+					width: 100%;
+    				bottom: -300px;
+    				display: flex;
+					text-align: center;
+					right: 0;
+					left: 0;
+				}
+				.footer-copy .left-f a{ /*icon*/
+    				display: inline-block;
+   					height: 40px;
+    				width: 40px;
+    				background-color: rgba(255,255,255,0.2);
+    				margin:0 10px 10px 0;
+    				text-align: center;
+    				line-height: 40px;
+    				border-radius: 50%;
+    				color: #ffffff;
+    				transition: all 0.5s ease;
+  				}
+  				.footer-copy a:hover{ /*icon เวลาเอาเม้าชี้*/
+    				color: #24262b;
+    				background-color: #ffffff;
+  				}
+				  .footer-address { /**/
+					justify-content: center;
+				}
+				.footer-contact {
+					justify-content: center;
+				}
+				@media screen and (max-width: 1300px) {
+    				footer .detail {
+        			bottom: auto;
+        			margin-top: -10vw;
+        			padding: 40px 0 0px;
+					flex-direction :column;
+					display: flex;
+    				justify-content: center;
+					align-items: center;
+					margin-top: 20px;
+   				 }}
+				/*footer*/
+				.loader {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #ffffff;
+                    transition: opacity 1.5s, visibility 1.5s;
+                }
+                .loader-hidden{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                .loader::after{
+                    content: "";
+                    width: 75px;
+                    height: 75px;
+                    border: 15px solid #fff;
+                    border-top-color: #5E6E52;
+                    border-radius: 50%;
+                    animation: loading 0.75s ease infinite;
+                }
+                @keyframes loading {
+                    from{
+                        transform: rotate(0turn);
+                    }
+                    to{
+                        transform: rotate(1turn);
+                    }
+                }
+				
+			</style>
+</head>	
+<body>	
+	<div class="loader"></div>
+	<script>
+		window.addEventListener("load", () => {
+			const loader = document.querySelector(".loader");
+
+			loader.classList.add("loader-hidden");
+
+			loader.addEventListener("transitionend", () => {
+				document.body.removeChild("loader")
+			})
+		})
+		</script>	
+	    <!-- ส่วนบน -->
+		<header>
+		<!-- Full Menu -->
+	<nav class="nav navbar fixed-top ">
+		<ul class="sidebar">
+			<li onclick="hideSidebar()"><a href="#" class="justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+			
+			<div class="ham-logo"> <!-- โลโก้ -->
+				<a href="index.html"><img src="img/logo.png" alt="" width="80">Mountain Camp </a>
+			</div>
+			
+			<li><a href="index.html">Home</a></li>
+			<li><a href="WEB-Location.html">Location</a></li>
+			<li><a href="WEB-Recommend.html">Recommend</a></li>
+			<li><a href="WEB-Contact.html">Contact</a></li>
+			<li><a href="server/login.php">Login</a></li>
+			<li>
+				<div class="Search">
+					<input type="text" placeholder="Search" class="aa">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</div>
+			</li>
+		</ul>
+		<!-- Full Menu -->
+ <!-- Button Top -->
+		<button class="go-top-btn">
+			<img src="https://img5.pic.in.th/file/secure-sv1/up-arrow-copy.png" alt="arrow up">
+		</button>
+
+<script>
+    const goTopBtn = document.querySelector('.go-top-btn');
+    
+    window.addEventListener('scroll', checkHeight)
+    function checkHeight(){
+    if(window.scrollY > 200) {
+        goTopBtn.style.display = "flex"
+    } else {
+        goTopBtn.style.display = "none"
+    }
+}
+
+goTopBtn.addEventListener('click', () => {
+window.scrollTo({
+    top: 0
+})
+})
+</script>
+<!-- Button Top -->
+
+		<!-- Mini Menu -->
+		<ul class="navbar navbar-expand-lg my-2 ">
+			<div class="container-fluid ">
+			<li>
+		
+			<div class="logo"> <!-- โลโก้ -->
+				<a href="index.html"><img src="img/logo.png" alt="" width="80">Mountain Camp </a>
+			</div>
+			</li>
+			<li class="hideOnMobile"><a href="index.html">Home</a></li>
+			<li class="hideOnMobile"><a href="WEB-Location.html">Location</a></li>
+			<li class="hideOnMobile"><a href="WEB-Recommend.html">Recommend</a></li>
+			<li class="hideOnMobile"><a href="WEB-Contact.html">Contact</a></li>
+			<li class="hideOnMobile"><a href="server/login.php">Login</a></li>
+			<div class="hideOnMobile">
+				<div class="Search">
+					<input type="text" placeholder="Search" class="aa">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</div>
+			</div>
+			</li>
+			<li class="menu-button" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 -960 960 960" width="35"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+		</div>
+		</ul>
+		<!-- Mini Menu -->
+	</nav>
+	
+	<!-- buger Menu Script-->
+	<script>
+		function showSidebar(){
+			const sidebar = document.querySelector('.sidebar')
+			sidebar.style.display = "flex"
+		}
+		function hideSidebar(){
+			const sidebar = document.querySelector('.sidebar')
+			sidebar.style.display = "none"
+		}
+	</script>
+	<!-- buger Menu Script-->
+	</header>
+		<!-- ส่วนบน --> 
+
+		<!-- ส่วนbody -->
+		<div class="emt">
+			<div class="text">
+				<h2>ภาคเหนือ</h2>
+			</div>
+			<a href="Wiangpapao Auto Camp .html" class="img-text">
+				<img src="location/เวียงป่าเป้า Wiangpapao Auto Camp/page.jpg" width="400" height="250">
+
+				<div class="text-all">
+					<h3>เวียงป่าเป้า Wiangpapao Auto Camp</h3>
+					<p>🏖 หนีร้อนมาแคมป์ปิ้ง 🏕 <br> ลานเปิดให้บริการตลอดช่วงสงกรานต์และหน้าร้อนนี้
+						สำหรับชาวแคมป์สายแกลมป์ ลานเรารองรับแอร์เคลื่อนที่ได้มากกว่า 12,000 BTU <br>ไฟเต็มที่ สบายหายห่วง
+						ติดทางหลวง 118 (เชียงใหม่-เชียงราย) ลานติดถนนใหญ่ ด้านในติดลำธาร พื้นที่กว้างขวาง เดินทางสะดวกมาก <br>ลากรถคาราวานเข้าได้สบายๆ พื้นที่ส่วนตัวเหมาะแก่การพักผ่อนและกิจกรรมครอบครัว</p>
+				</div>
+				
+			</a>
+
+			<a href="Phutaly Cafe .html" class="img-text">
+				<img src="location/ภูตาลี่ คาเฟ่ Phutaly Cafe/page.jpg" width="400" height="250">
+
+				<div class="text-all">
+					<h3>ภูตาลี่ คาเฟ่ Phutaly Cafe</h3>
+					<p>ธรรมชาติบำบัด ☀️ นอนเต็นท์เย็นสบาย มาถึงไร่ก็กางเต็นท์รอแล้วค่ะ มีอาหารเช้า กาแฟ น้ำดื่มครบ</p>
+				</div>
+				
+			</a>
+
+			<a href="Make me see Cloud.html" " class="img-text">
+				<img src="location/เมฆมีสีขาว (Make me see Cloud)/page.jpg" width="400" height="250">
+
+				<div class="text-all">
+					<h3>เมฆมีสีขาว Make me see Cloud</h3>
+					<p>ลานกางเต็นท์ เมฆมีสีขาว ยินดีต้อนรับชาวแคมป์ทุกท่าน จองเข้ามาได้เลยนะค้า ❤️ ☁️ <br> กางเต็นท์ 250บาท / คน ☁️ เต็นท์รถ Camping car 100บาท +ต่อคนคนละ250 บาท ☁️เด็กต่ำกว่า 7 ขวบ ฟรี </p>
+				</div>
+				
+			</a>
+
+			<a href="Saun_ta_khaew_Camping.html" class="img-text">
+				<img src="location/สวนตาแข๋ว แคมป์ (Saun ta khaew Camping)/page.jpg" width="400" height="250">
+
+				<div class="text-all">
+					<h3>สวนตาแข๋ว แคมป์ Saun ta khaew Camping</h3>
+					<p>#โปรโมชั่นหน้าร้อน ชิวๆสบายๆ 🏕️⛺ สวนตาแข๋ว"แคมป์" เปิดให้บริการครับ รายละเอียด ค่ากางเต็นท์ มี.ค. - พ.ค. ค่ากางเต็นท์ คนละ 180 บาท</p>
+				</div>
+				
+			</a>
+		</div>
+		<!-- ส่วนbody -->
+
+		<!-- ส่วนfooter -->
+	<footer>
+		<div class="Container-fluid">
+			 <!-- พื้นหลัง footer -->
+					<div class="detail">
+						<div class="footer-address col-md-4"> <!--แถบ 1-->
+							<p>Mountain Camp</p>
+							<p>Rajamangala University of Technology Thanyaburi
+							<br>Address : 39 Moo 1, Klong 6, Khlong Luang Pathum Thani 12110 Thailand</br></p>
+							<p>Email : mountaincamp@mail.com</p>
+						</div>
+						<div class="footer-contact col-md-4"> <!--แถบ 2-->
+							<p>Opening hours: ( 10.00 a.m. - 10:00 p.m. )</p>
+							<p>
+								Tourist information ( 11.30 a.m. - 6:00 p.m. )<br>
+								Tel : 099-327-1546 (ProJect Manager)
+							</p>
+							<p>
+								Emergency Call (24 hours)<br>
+								Tel : 191 (police)<br>
+								Tel : 1669 (hospital)
+							</p>
+						</div>
+						<div class="footer-copy col-md-4" style="justify-content: center;"> <!--แถบ 3-->
+							<div class="left-f">
+							<p>
+								<a href="https://www.facebook.com/profile.php?id=61556827437882&mibextid=LQQJ4d
+								"target="_blank"><i class="fab fa-facebook-f"></i></a>
+								<a href="https://x.com/mountaincamp01?s=21&t=c1GSwNEYZR6T10_pDTIyFQ"target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+								<a href="https://www.instagram.com/moun_tain_camp?igsh=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr"target="_blank"><i class="fab fa-instagram"></i></a>
+							</p>
+						</div>
+						<div class="right-f">
+							<p class="text-center ">&copy;2024 Mountain Camp</p>
+								<a href="credit.html" class="bbg" style="color:#e6dfb2;"">by @Mountain Camp</b>
+						</div>	
+				</div>
+			</div>
+	</footer>
+	<!-- ส่วนfooter -->
+
+</body>
+</html>
